@@ -1,1 +1,16 @@
-Add your steps (pseudo-code) for the dice game here.
+State the name of the game
+add #includes
+add all constants
+ask if they want to play
+while answer is yes
+    roll r1 for first roll
+    roll r2 for second roll
+    total the rolls
+    display what they rolled
+    if total = 7 or 11
+        display win
+    else 
+        display loss
+    ask if they want to play again
+    repeat rolls,
+    if roll = 7 display loss
