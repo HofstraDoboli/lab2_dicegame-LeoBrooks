@@ -8,12 +8,14 @@ using namespace std;
 
 int main()
 {
-    srand(time(0)); // initialize random seed generator to current time: 
+    srand(time(NULL)); // initialize random seed generator to current time: 
 					// needed to generate a different sequence of random numbers
 					// each time you run your program
 
     // Add your code to play the dice game here
     cout << "~ Dice Game ~" << endl;
+    bool boolpoints = false;
+    bool lose = false;
     const int L2 = 2;
     const int L3 = 3;
     const int L12 = 12;
@@ -25,7 +27,7 @@ int main()
     cout << "Want to play? (Y/N)" << endl;
     cin >> playGame;
 
-    while (playGame== 'Y')
+    while (playGame=='y' || playGame=='Y')
     {
         int r1 = rand()%6+1;
         int r2 = rand()%6+1;
@@ -56,17 +58,17 @@ int main()
                 cout << "First roll: " << r1;
                 cout << "Second roll: " << r2;
                 cout << "Total: " << total;
-                points = 0;
-                points +=total;
+                lose= total == SUBROLL;
+                boolpoints= total == points;
 
-            }while (total != 0);
+            }while (points || lose);
             
-            if (total == SUBROLL)
+            if (!lose)
             {
                 cout << "You lost." << endl;
                 cin >> playGame;
             }
-            if(total == W7 || total == W11)
+            if(!boolpoints)
             {
                 cout << "You won!" << endl;
                 cin >> playGame;
